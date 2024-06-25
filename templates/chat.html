@@ -5,18 +5,18 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-
-  <div class="container darker">
+<div class="chat">
+  <div class="container zakrep">
   <img src="{{ url_for('static', filename='avatar.png') }}" alt="Avatar" style="width:30px;">
-  <p>Тестовое сообщение ня</p>
-  <span class="time-left">11:05</span>
+  <p class="zakreptext">Объявление: подпис на t.me/panzunya</p>
 </div>
 
 {% include 'messages.html' %}
 
 <form method="post" action="/submit">
-  <input type="text" name="text">
-  <input type="submit" value="Submit">
+  <input type="submit" value="Отправить" class="button-right">
+  <input type="text" name="text" class="button-right">
 </form>
+  </div>
   </body>
 </html>
