@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Чат</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="UTF-8">
+  </head>
+  <body>
+<div class="chat">
+  <div class="container zakrep">
+  <img src="{{ url_for('static', filename='avatar.png') }}" alt="Avatar" style="width:30px;">
+  <p class="zakreptext">Объявление: подпис на t.me/panzunya</p>
+</div>
+
+{% include 'messages.html' %}
+
+<form method="post" action="/submit">
+  <input type="submit" value="Отправить" class="button-right">
+  <input type="text" name="text" class="button-right">
+</form>
+  </div>
+  </body>
+</html>
