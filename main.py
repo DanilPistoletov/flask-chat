@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 app = Flask(__name__)
+version = "1.3"
 
 @app.route("/")
 def get_messages():
