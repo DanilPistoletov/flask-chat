@@ -14,6 +14,7 @@
 .zakreptext {
 color:#fff;
 font-weight: bold;
+font-size: 14pt;
 }
 
 .container::after {
@@ -49,6 +50,39 @@ font-weight: bold;
 .button-right {
 float: right;
     margin-right: 5px;
+    border-radius: 5%;
+    font-size: 18px;
+    background: #fff;
+    color: #000;
+    min-width: 100px;
+}
+
+.form-right {
+float: right;
+    margin-right: 5px;
+    border-radius: 5%;
+    font-size: 18px;
+    background: #fff;
+    color: #000;
+    min-width: 500px;
+}
+
+.button {
+    margin-right: 5px;
+    border-radius: 5%;
+    font-size: 18px;
+    background: #fff;
+    color: #000;
+    min-width: 100px;
+}
+
+.form {
+    margin-right: 5px;
+    border-radius: 5%;
+    font-size: 18px;
+    background: #fff;
+    color: #000;
+    width: 200px;
 }
 
 .chat {
@@ -60,4 +94,14 @@ float: right;
 
 .p {
 width: 100%;
+}
+
+.messages {
+    height: 80%;
+    overflow: auto;
+}
+
+.details {
+font-size: 32px;
+color: #fff;
 }

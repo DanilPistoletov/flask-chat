@@ -3,20 +3,60 @@
     <title>Чат</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="UTF-8">
   </head>
   <body>
 <div class="chat">
   <div class="container zakrep">
-  <img src="{{ url_for('static', filename='avatar.png') }}" alt="Avatar" style="width:30px;">
   <p class="zakreptext">Объявление: подпис на t.me/panzunya</p>
 </div>
 
-{% include 'messages.html' %}
-
-<form method="post" action="/submit">
+<div class="messages" id="messages">{% include 'messages.html' %}</div><br>
+<script type="text/javascript">
+  var block = document.getElementById("messages");
+  block.scrollTop = block.scrollHeight;
+</script>
+<form method="post" action="/sms">
   <input type="submit" value="Отправить" class="button-right">
-  <input type="text" name="text" class="button-right">
+  <input type="text" name="text" class="form-right">
 </form>
+
+  {% if session.name %}
+      <h3>Привет, {{ session.name }} <a href="/logout">Выйти</a>.</h3>
+   {% else %}
+ <details>
+<summary class="details">Регистрация</summary>
+    <form method="post" action="/register">
+    <p class="zakreptext">Логин:</p><input type="text" name="reg-login" title="Логин" class="form">
+    <p class="zakreptext">Пароль:</p><input type="password" name="reg-password" title="Пароль" class="form"><br><br>
+    <input type="submit" value="Зарегистрироваться" class="button">
+    </form>
+  </details>
+     <details>
+<summary class="details">Вход</summary>
+<form method="post" action="/login">
+  <p class="zakreptext">Логин:</p><input type="text" name="login" title="Логин" class="form">
+    <p class="zakreptext">Пароль:</p><input type="password" name="password" title="Пароль" class="form"><br><br>
+    <input type="submit" value="Войти" class="button">
+</form>
+ </details>
+   {% endif %}
+    {% if session.name=="admin" %}
+    <p class="zakreptext">Админ-панель</p>
+    <form method="post" action="/checkupdate">
+        <input type="submit" value="Проверить обновления чата" class="button">
+    </form>
+    {% endif %}
   </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+function updateDiv()
+{
+    $( "#messages" ).load(window.location.href + " #messages" );
+      var block = document.getElementById("messages");
+  block.scrollTop = block.scrollHeight;
+}
+setInterval(updateDiv, 5000);
+	</script>
   </body>
 </html>
